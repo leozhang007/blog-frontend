@@ -19,8 +19,8 @@ module.exports = {
       options: {
         apiURL: process.env.GRIDSOME_API_URL,
         queryLimit: 1000, // Defaults to 100
-        contentTypes: ['post', 'tag'],
-        singleTypes: ['general'],
+        contentTypes: ['post', 'tag', 'page', 'blog'],
+        singleTypes: ['general', 'configuration', 'master'],
         // Possibility to login with a Strapi user,
         // when content types are not publicly available (optional).
         // loginData: {
@@ -31,6 +31,18 @@ module.exports = {
     }
   ],
   templates: {
+    project: [
+      {
+        path: '/project-details/:id',
+        component: './src/templates/project.vue'
+      }
+    ],
+    StrapiBlog: [
+      {
+        path: '/blog-details/:id',
+        component: './src/templates/StrapiBlog.vue'
+      }
+    ],
     StrapiPost: [
       {
         path: '/post/:id',
